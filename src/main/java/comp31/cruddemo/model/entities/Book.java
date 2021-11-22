@@ -25,7 +25,7 @@ public class Book {
     @Column(name="BOOK_TITLE")
     private String title;
     //
-    @Coloumn(name="BOOK_PRICE")
+    @Column(name="BOOK_PRICE")
     private Double price;
 //year of the book
 
