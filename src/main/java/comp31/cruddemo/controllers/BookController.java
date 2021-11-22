@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import comp31.cruddemo.services.BookService;
 
-
+//books the service fornthe author
 @Controller
 public class BookController {
     
@@ -23,23 +23,32 @@ public class BookController {
     }
 
     Logger logger = LoggerFactory.getLogger(BookController.class);
-    
+    //the getmapping lab
+
     @GetMapping("/")
     public String getIndex()
     {
             return "index";
     }
+    @GetMapping("/test")
+    public String getTest(Model model)
+    {
+            model.addAttribute("books",bookService.test());
+            return "books";
+    }
 
+     //getMapping method
     @GetMapping("/books")
     public String getBooks(
         @RequestParam(required=false) String firstName, 
         @RequestParam(required=false) String lastName, 
         Model model)
     {
+        //check to confirm wherther author name is valid
         boolean authorNameInvalid = 
             firstName == null || firstName.isEmpty() || 
             lastName  == null || lastName.isEmpty();
-        
+        //continues if the author name is valid
         if (authorNameInvalid)
         {   model.addAttribute("books", bookService.findBooks());
         }

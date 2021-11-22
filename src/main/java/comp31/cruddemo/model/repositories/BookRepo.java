@@ -10,5 +10,11 @@ import comp31.cruddemo.model.entities.Book;
 
 @Repository
 public interface BookRepo extends CrudRepository<Book,Long>{
+    //variety of functions that can be used for extracting information
     List<Book> findByAuthor(Author author);
+    List<Book> findByYear(String year);
+    List<Book> findByYearOrderByAuthorLastNameAsc(String year);
+    List<Book> findByYearOrderByAuthorLastNameDesc(String year);
+    List<Book> findByTitleContaining(String Keyword);
+    List<Book> findByAuthorAndTitleContaining(Author author,String keyword);
 }

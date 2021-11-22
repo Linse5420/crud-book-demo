@@ -24,17 +24,17 @@ public class BookService {
         this.authorRepo = authorRepo;
     }
 
-
+/// the find all function is used  to find all the authors
     public Iterable<Author> findAuthors()
     {
         return authorRepo.findAll();
     }
-
+// the following function is used to find all th books from the array
     public Iterable<Book> findBooks()
     {
         return bookRepo.findAll();
     }
-
+// the following is used to extract the name of the customer by their name based upon the given condition statements
     public Iterable<Book> findBooksByAuthor(String firstName, String lastName)
     {        
         List <Book> bookList = new ArrayList<>();
@@ -45,6 +45,14 @@ public class BookService {
             bookList = author.getBooks();            
         }
         return bookList;
+    }
+    public List<Book>test()
+    {
+        //tring out diffrent functions
+        //return bookRepo.findByYearOrderByAuthorLastNameAsc("2019");
+        Author author=authorRepo.findOneByLastName("savich");
+       return bookRepo.findByAuthorAndTitleContaining(author, "java");
+
     }
 
 }
