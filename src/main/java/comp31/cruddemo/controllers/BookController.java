@@ -65,5 +65,44 @@ public class BookController {
         model.addAttribute("authors" , bookService.findAuthors());
         return "authors";
     }
+    @GetMapping("/test1")
+    public String getTest1(Model model)
+    {
+        model.addAttribute("authors",bookService.findAuthorslastNameThatBeginWithLetters("ant"));
+        return "authors";
+    }
+    @GetMapping("/test2")
+    public String getTest2(Model model)
+    {
+        model.addAttribute("authors",bookService.findAuthorsByLastNameStartingWithLetter('g'));
+        return "authors";
+    }
+    @GetMapping("/test3")
+    public String getTest3(Model model)
+    {
+        model.addAttribute("books",bookService.findBooksByPriceIncreasingly());
+        return "books";
+    }
+    @GetMapping("/test4")
+    public String getTest4(Model model)
+    {
+        model.addAttribute("books",bookService.findBooksByTitleContainingKeyword("ant"));
+        return "books";
+    }
+    @GetMapping("/test5")
+    public String getTest5(Model model)
+    {
+        model.addAttribute("books",bookService.findBooksContainKeywords("l","n"));
+        return "books";
+    }
+    @GetMapping("/test6")
+    public String getTest6(Model model)
+    {
+        model.addAttribute("books",bookService.findBooksByTitleContainingKeywordAndNotContaingKeyword("l","n"));
+        return "books";
+    }
+
+
+
 
 }
