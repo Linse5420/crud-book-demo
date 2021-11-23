@@ -17,5 +17,6 @@ Author findOneByLastName(String lastName);
 
     List<Author>findByLastNameStartingWith(char letter);
     List<Author>findByLastNameStartingWithIgnoreCase(String letters);
+    List<Author>findByFirstNameIgnoreCaseAndLastNameIgnoreCase(String firstName,String lastName);
 }
 

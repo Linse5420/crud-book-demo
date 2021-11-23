@@ -38,7 +38,8 @@ public class BookService {
     public Iterable<Book> findBooksByAuthor(String firstName, String lastName)
     {        
         List <Book> bookList = new ArrayList<>();
-        List<Author> authorList = authorRepo.findByFirstNameAndLastName(firstName,lastName);
+        List<Author> authorList = authorRepo.findByFirstNameIgnoreCaseAndLastNameIgnoreCase(firstName,lastName);
+        // List<Author> authorList = authorRepo.findByLastNameIgnoreCase(lastName);
         if (!authorList.isEmpty())
         {
             Author author = authorList.get(0);
