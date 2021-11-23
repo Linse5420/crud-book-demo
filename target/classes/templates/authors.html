@@ -23,6 +23,17 @@
     <div th:insert="fragments/frags :: navbar" class="navbar">
     </div>
 
+    <form th:action="@{/test1}">
+        <label for="letters">authors with last name starting with</label>
+         <input type="text" name='letters' id='letters'>
+         <input type="submit" value="search">
+    </form>
+
+    <form th:action="@{/test2}">
+        <label for="letter">authors with name starting with ignore case</label>
+         <input type="text" name='letter' id='letter' maxlength="1">
+         <input type="submit" value="search">
+    </form>
     <table class="border">
         <tr>
             <th colspan="2">Authors</th>

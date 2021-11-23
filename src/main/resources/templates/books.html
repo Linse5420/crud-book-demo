@@ -31,6 +31,41 @@
         <input type="submit" value="Send">
     </form>
 
+    <form th:action="@{/test3}">
+        <label for="letter">search in increase order of price</label>
+        <input type="text" name='letter' id='letter'>
+         <input type="submit" value="search">
+    </form>
+
+    <form th:action="@{/test4}">
+        <label for="letters">Books by title conataining</label>
+        <br>
+         <input type="text" name='letter' id='letter'>
+         <input type="submit" value="search">
+    </form>
+
+    <form th:action="@{/test5}">
+        <label for="letters">Books by title conataining 2 keywords</label>
+        <br>
+         <input type="text" name='letter1' id='letter1'>
+         <br>
+         <input type="text" name='letter2' id='letter2'>
+         <input type="submit" value="search">
+    </form>
+
+    <form th:action="@{/test6}">
+        <label for="letters">Books by title conataining and not containg keywords</label>
+        <br>
+         <input type="text" name='letter1' id='letter1'>
+         <br>
+         <input type="text" name='letter2' id='letter2'>
+         <input type="submit" value="search">
+    </form>
+    
+
+
+
+
 
 
     <table>

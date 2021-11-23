@@ -20,8 +20,8 @@ public interface BookRepo extends CrudRepository<Book,Long>{
     List<Book> findByAuthorAndTitleContaining(Author author,String keyword);
 
     List<Book>findAllByOrderByPriceAsc();
-    List<Book>findByTitleContainingAndTitleContaining(String keyword1, String keyword2);
-    List<Book>findByTitleNotContaining(String keyword);
-    List<Book>findByTitleContainingAndTitleNotContaining(String keyword1,String keyword2);
+    List<Book>findByTitleContainingAndTitleContaining(String letter1, String letter2);
+    List<Book>findByTitleNotContaining(String letter);
+    List<Book>findByTitleContainingAndTitleNotContaining(String letter1,String letter2);
     
 }

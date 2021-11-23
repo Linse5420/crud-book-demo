@@ -55,29 +55,29 @@ public class BookService {
        return bookRepo.findByAuthorAndTitleContaining(author, "java");
 
     }
-    public List<Author>findAuthorsByLastNameStartingWithLetter(char letter)
+    public List<Author>findAuthorsByLastNameStartingWithLetter(String letter)
     {
         return authorRepo.findByLastNameStartingWith(letter);
     }
     public List<Author>findAuthorslastNameThatBeginWithLetters(String letters){
         return authorRepo.findByLastNameStartingWithIgnoreCase(letters);
     }
-    public List<Book>findBooksByPriceIncreasingly()
+    public List<Book>findAllByOrderByPriceAsc()
     {
         return bookRepo.findAllByOrderByPriceAsc();
 
     }
-    public List<Book>findBooksContainKeywords(String keyword1, String keyword2)
+    public List<Book>findBooksContainKeywords(String letter1, String letter2)
     {
-        return bookRepo.findByTitleContainingAndTitleContaining(keyword1,keyword2);
+        return bookRepo.findByTitleContainingAndTitleContaining(letter1,letter2);
     }
-    public List<Book>findBooksByTitleContainingKeyword(String keyword)
+    public List<Book>findBooksByTitleContainingKeyword(String letter)
     {
-        return bookRepo.findByTitleNotContaining(keyword);
+        return bookRepo.findByTitleNotContaining(letter);
     }
-    public List<Book>findBooksByTitleContainingKeywordAndNotContaingKeyword(String keyword1, String keyword2)
+    public List<Book>findBooksByTitleContainingKeywordAndNotContaingKeyword(String letter1, String letter2)
     {
-        return bookRepo.findByTitleContainingAndTitleNotContaining(keyword1,keyword2);
+        return bookRepo.findByTitleContainingAndTitleNotContaining(letter1,letter2);
     }
 
 }

@@ -66,37 +66,37 @@ public class BookController {
         return "authors";
     }
     @GetMapping("/test1")
-    public String getTest1(Model model)
+    public String getTest1( @RequestParam(required=false) String letters,Model model)
     {
-        model.addAttribute("authors",bookService.findAuthorslastNameThatBeginWithLetters("ant"));
+        model.addAttribute("authors",bookService.findAuthorslastNameThatBeginWithLetters(letters));
         return "authors";
     }
     @GetMapping("/test2")
-    public String getTest2(Model model)
+    public String getTest2(@RequestParam(required=false) String letter,Model model)
     {
-        model.addAttribute("authors",bookService.findAuthorsByLastNameStartingWithLetter('g'));
+        model.addAttribute("authors",bookService.findAuthorsByLastNameStartingWithLetter(letter));
         return "authors";
     }
     @GetMapping("/test3")
-    public String getTest3(Model model)
+    public String getTest3(@RequestParam(required=false) Model model)
     {
-        model.addAttribute("books",bookService.findBooksByPriceIncreasingly());
+        model.addAttribute("books",bookService.findAllByOrderByPriceAsc());
         return "books";
     }
     @GetMapping("/test4")
-    public String getTest4(Model model)
+    public String getTest4(@RequestParam(required=false) String letter, Model model)
     {
-        model.addAttribute("books",bookService.findBooksByTitleContainingKeyword("ant"));
+        model.addAttribute("books",bookService.findBooksByTitleContainingKeyword(letter));
         return "books";
     }
     @GetMapping("/test5")
-    public String getTest5(Model model)
+    public String getTest5(@RequestParam(required=false) String letter1,String letter2, Model model)
     {
-        model.addAttribute("books",bookService.findBooksContainKeywords("l","n"));
+        model.addAttribute("books",bookService.findBooksContainKeywords(letter1,letter2));
         return "books";
     }
     @GetMapping("/test6")
-    public String getTest6(Model model)
+    public String getTest6(@RequestParam(required=false)String letter1,String letter2, Model model)
     {
         model.addAttribute("books",bookService.findBooksByTitleContainingKeywordAndNotContaingKeyword("l","n"));
         return "books";
